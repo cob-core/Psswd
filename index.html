@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psswd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Psswd</h1>
+        <p class="tagline">Memorable passwords, generated locally. Perfect for IT use.</p>
+        <label for="length">Password Length:</label>
+        <input type="number" id="length" min="8" max="32" value="12">
+        <p class="warning">Please note password length is suggestive not declarative.</p>
+        <button id="generate">Generate Password</button>
+        <div class="result">
+            <h2>Your Password:</h2>
+            <input type="text" id="password" readonly>
+            <div class="button-group">
+                <button id="copy" onclick="copyPassword()">Copy</button>
+                <button id="copyFormat" onclick="copyFormattedPassword()">Copy & Format</button>
+            </div>
+        </div>
+        <div class="history">
+            <h2>Password History</h2>
+            <div id="passwordHistory"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
