@@ -72,50 +72,93 @@ function generateRandomNumbers(count) {
 }
 
 function addToHistory(password) {
-    const historyContainer = document.getElementById("passwordHistory");
-    if (historyContainer.children.length >= 5) {
-        historyContainer.removeChild(historyContainer.firstChild);
-    }
-    const historyEntry = document.createElement("div");
-    historyEntry.classList.add("history-entry");
-    historyEntry.innerHTML = `
-        <span>${password}</span>
-        <div class="button-group">
-            <button class="copyHistory">Copy</button>
-            <button class="copyFormatHistory">Copy & Format</button>
-        </div>
-    `;
-    historyContainer.appendChild(historyEntry);
+    const historyDiv = document.getElementById('passwordHistory');
 
-    // Add event listeners for new buttons
-    historyEntry.querySelector('.copyHistory').addEventListener('click', () => copyHistoryPassword(password, historyEntry.querySelector('.copyHistory')));
-    historyEntry.querySelector('.copyFormatHistory').addEventListener('click', () => copyFormattedHistoryPassword(password));
+    // Create the new password entry
+    const passwordEntry = document.createElement('div');
+    passwordEntry.classList.add('history-item');
+    passwordEntry.innerHTML = `
+        <input type="text" value="${password}" readonly />
+        <button class="copy-btn" onclick="copyPasswordToClipboard(this, '${password}')">Copy</button>
+        <button class="copy-format-btn" onclick="copyFormattedPasswordToClipboard(this, '${password}')">Copy & Format</button>
+    `;
+
+    // Prepend the new password to the top
+    historyDiv.prepend(passwordEntry);
 }
 
+
+// Copy regular password
 function copyPassword() {
     const password = document.getElementById("password").value;
-    navigator.clipboard.writeText(password).then(() => {
-        changeButtonText("copy"); // Show tick on Copy button
-    });
+
+    // Check if the Clipboard API is supported
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(password).then(() => {
+            changeButtonText("copy"); // Show tick on Copy button
+        }).catch(err => {
+            console.error("Error copying password: ", err);
+        });
+    } else {
+        fallbackCopyText(password, "copy");
+    }
 }
 
+// Copy formatted password
 function copyFormattedPassword() {
     const password = document.getElementById("password").value;
     const formattedText = `Login Details\nUsername: \nPassword: ${password}`;
-    navigator.clipboard.writeText(formattedText).then(() => {
-        changeButtonText("copyFormat"); // Show tick on Copy & Format button
-    });
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(formattedText).then(() => {
+            changeButtonText("copyFormat"); // Show tick on Copy & Format button
+        }).catch(err => {
+            console.error("Error copying formatted password: ", err);
+        });
+    } else {
+        fallbackCopyText(formattedText, "copyFormat");
+    }
 }
 
+// Copy password from history
 function copyHistoryPassword(password, button) {
-    navigator.clipboard.writeText(password);
-    changeButtonText(button.id, "Done");
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(password).then(() => {
+            changeButtonText(button.id); // Show tick on history Copy button
+        }).catch(err => {
+            console.error("Error copying password from history: ", err);
+        });
+    } else {
+        fallbackCopyText(password, button.id);
+    }
 }
 
-function copyFormattedHistoryPassword(password) {
+// Copy formatted password from history
+function copyFormattedHistoryPassword(password, button) {
     const formattedText = `Login Details\nUsername: \nPassword: ${password}`;
-    navigator.clipboard.writeText(formattedText);
-    changeButtonText("copyFormatHistory", "Done");
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(formattedText).then(() => {
+            changeButtonText(button.id); // Show tick on history Copy & Format button
+        }).catch(err => {
+            console.error("Error copying formatted password from history: ", err);
+        });
+    } else {
+        fallbackCopyText(formattedText, button.id);
+    }
+}
+
+// Fallback method for older browsers without Clipboard API
+function fallbackCopyText(text, buttonId) {
+    const tempTextarea = document.createElement("textarea");
+    tempTextarea.value = text;
+    document.body.appendChild(tempTextarea);
+    tempTextarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempTextarea);
+
+    // Show tick
+    changeButtonText(buttonId);
 }
 
 function changeButtonText(buttonId) {
