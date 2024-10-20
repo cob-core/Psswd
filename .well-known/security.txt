@@ -1,0 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto:security@psswd.org
+Expires: 2025-12-01T12:00:00.000Z
+Encryption: https://psswd.org/pgp_key.txt
+Preferred-Languages: en
+Canonical: https://psswd.org/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iIkEARYKADEWIQQdI2lNQrrXsrmhjiwAeERWJI22ewUCZxUCrRMcc2VjdXJpdHlA
+cHNzd2Qub3JnAAoJEAB4RFYkjbZ7XSgA+wYHq30qjXaCVbwFh94NouLwIyKxKGUG
+gn6jj7mEu+i+APoC+yiuUV4VlgUZiALepDu/Zc4NaV/Z9SXTTphb4JLWDg==
+=7M5e
+-----END PGP SIGNATURE-----
