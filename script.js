@@ -101,7 +101,7 @@ function copyPassword() {
 
 function copyFormattedPassword() {
     const password = document.getElementById("password").value;
-    const formattedText = `Here are your user details:\nUsername: (Blank)\nPassword: ${password}`;
+    const formattedText = `Login Details\nUsername: \nPassword: ${password}`;
     navigator.clipboard.writeText(formattedText).then(() => {
         changeButtonText("copyFormat"); // Show tick on Copy & Format button
     });
@@ -113,7 +113,7 @@ function copyHistoryPassword(password, button) {
 }
 
 function copyFormattedHistoryPassword(password) {
-    const formattedText = `Here are your user details:\nUsername: (Blank)\nPassword: ${password}`;
+    const formattedText = `Login Details\nUsername: \nPassword: ${password}`;
     navigator.clipboard.writeText(formattedText);
     changeButtonText("copyFormatHistory", "Done");
 }
