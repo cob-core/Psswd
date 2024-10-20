@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggest an Idea</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Suggest an Idea</h1>
+        <p class="warning">Please note this form is not encrypted. If there is anything sensitive you wish to share, please use the 'Report' page instead.</p>
+        <form id="suggestionForm">
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="suggestion">Your Suggestion:</label><br>
+            <textarea id="suggestion" name="suggestion" rows="4" cols="50" required></textarea><br><br>
+
+            <button type="button" onclick="sendSuggestion()">Send Suggestion</button>
+        </form>
+    </div>
+
+    <script>
+        function sanitizeInput(input) {
+            const tempElement = document.createElement('div');
+            tempElement.innerText = input; // Escape HTML
+            return tempElement.innerHTML; // Return the sanitized string
+        }
+
+        function sendSuggestion() {
+            const name = sanitizeInput(document.getElementById('name').value);
+            const email = sanitizeInput(document.getElementById('email').value);
+            const suggestion = sanitizeInput(document.getElementById('suggestion').value);
+
+            // Create the formatted email body
+    const emailBody = `
+<b>Name:</b> ${name}
+<b>Email:</b> ${email}
+
+Psswd.org,
+
+        ${suggestion}
+            `.trim();
+
+            // Redirect to mailto with the formatted body
+            window.location.href = `mailto:suggestions@psswd.org?subject=Suggestion from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
+        }
+    </script>
+</body>
+</html>

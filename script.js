@@ -72,21 +72,31 @@ function generateRandomNumbers(count) {
 }
 
 function addToHistory(password) {
-    const historyDiv = document.getElementById('passwordHistory');
+    const historyContainer = document.getElementById("passwordHistory");
+
+    // Check if the maximum number of history items has been reached
+    if (historyContainer.children.length >= 5) {
+        historyContainer.removeChild(historyContainer.lastChild); // Remove the oldest entry
+    }
 
     // Create the new password entry
-    const passwordEntry = document.createElement('div');
-    passwordEntry.classList.add('history-item');
-    passwordEntry.innerHTML = `
-        <input type="text" value="${password}" readonly />
-        <button class="copy-btn" onclick="copyPasswordToClipboard(this, '${password}')">Copy</button>
-        <button class="copy-format-btn" onclick="copyFormattedPasswordToClipboard(this, '${password}')">Copy & Format</button>
+    const historyEntry = document.createElement("div");
+    historyEntry.classList.add("history-entry");
+    historyEntry.innerHTML = `
+        <span>${password}</span>
+        <div class="button-group">
+            <button class="copyHistory">Copy</button>
+            <button class="copyFormatHistory">Copy & Format</button>
+        </div>
     `;
 
-    // Prepend the new password to the top
-    historyDiv.prepend(passwordEntry);
-}
+    // Prepend the new password entry to the top
+    historyContainer.prepend(historyEntry);
 
+    // Add event listeners for the new buttons
+    historyEntry.querySelector('.copyHistory').addEventListener('click', () => copyHistoryPassword(password, historyEntry.querySelector('.copyHistory')));
+    historyEntry.querySelector('.copyFormatHistory').addEventListener('click', () => copyFormattedHistoryPassword(password));
+}
 
 // Copy regular password
 function copyPassword() {
