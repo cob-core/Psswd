@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("generate").addEventListener("click", generatePassword);
     document.getElementById("copy").addEventListener("click", copyPassword);
     document.getElementById("copyFormat").addEventListener("click", copyFormattedPassword);
+    document.getElementById("generate-api").addEventListener("click", generatePasswordViaAPI);
     // Set the default password length to 14
     document.getElementById("length").value = 14;
 });
@@ -39,7 +40,7 @@ function generatePassword() {
     }
 
     // Ensure at least 1 symbol and 2 numbers
-    if (passwordParts.length === 0) {
+    if (passwordParts.length < 8) {
         alert("Please increase the length to accommodate at least one word.");
         return;
     }
@@ -52,6 +53,27 @@ function generatePassword() {
     document.getElementById("password").value = password;
 
     addToHistory(password);
+}
+
+function generatePasswordViaAPI() {
+    const length = document.getElementById("length").value || 12;  // Default to 12 if not provided
+    const apiURL = `https://api.psswd.org/?length=${length}`;
+
+    if (passwordParts.length < 8) {
+        alert("Please increase the length to accommodate at least one word.");
+        return;
+    }
+
+    // Fetch the password from the API
+    fetch(apiURL)
+        .then(response => response.json())
+        .then(data => {
+            // Display the password in the result area
+            document.getElementById("password").value = data;
+        })
+        .catch(error => {
+            console.error('Error generating password via API:', error);
+        });
 }
 
 function getRandomWord() {
