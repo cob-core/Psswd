@@ -59,7 +59,7 @@ function generatePassword() {
 
 function generatePasswordViaAPI() {
     const length = document.getElementById("length").value || 12;  // Default to 12 if not provided
-    const apiURL = `https://api.psswd.org/generate-password?length=${length}`;
+    const apiURL = `https://api.psswd.org/`;
 
     // Fetch the password from the API
     fetch(apiURL)
