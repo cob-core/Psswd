@@ -4,17 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report a Security Vulnerability</title>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .pgp-key-container {
+            margin-top: 20px;
+            background-color: #191923;
+            padding: 10px;
+            border-radius: 5px;
+            color: #FBFEF9;
+            white-space: pre-wrap; /* Keep formatting of PGP key */
+            font-family: monospace; /* Make the PGP key look distinct */
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #0E79B2;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Report a Security Vulnerability</h1>
-        <p class="warning">Please send a PGP encrypted email to <a href="mailto:security@psswd.org"><b>security@psswd.org</b></a> or report the vulnerability below.</p>
+        <p class="warning">Please send a PGP encrypted email to <a style="color: #DDDDDD;" href="mailto:security@psswd.org"><b>security@psswd.org</b></a> or report the vulnerability below.</p>
         <button onclick="window.location.href='https://github.com/cobbock/Psswd/security'">Report Vulnerability</button>
+        
+        <!-- PGP Key Section -->
+        <h2>PGP Public Key</h2>
+        <div class="pgp-key-container" id="pgpKeyContainer">
+            Loading PGP key...
+        </div>
     </div>
+
+    <!-- Footer Section -->
     <div class="support-section">
-        <p class="footer">Icons by <a href="https://icons8.com/">Icons8</a></p>
-    </div>    
+        <hr style="width: 75%; color: #191923;">
+        <p class="footer"><b>Psswd.org</b> 2024</p>
+        <p class="footer" style="font-size: 12px;">Icons by <a href="https://icons8.com/">Icons8</a></p>
+        </div>
+    <script>
+        // Fetch the PGP key from the pgp_key.txt file and display it
+        fetch('./pgp_key.txt')
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                document.getElementById('pgpKeyContainer').textContent = data;
+            })
+            .catch(error => {
+                document.getElementById('pgpKeyContainer').textContent = 'Error loading PGP key: ' + error.message;
+            });
+    </script>
 </body>
 </html>
