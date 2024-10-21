@@ -31,20 +31,21 @@ function generatePassword() {
     const passwordParts = [];
     let totalLength = 0;
     
+    // Loop to generate words and check their length against total password length
     while (totalLength < length - 3) { // Leave space for numbers and a symbol
         const word = getRandomWord();
         if (word) {
             passwordParts.push(capitalizeFirstLetter(word));
             totalLength += word.length;
         }
+
+        // Ensure at least one word is added
+        if (passwordParts.length === 0) {
+            alert("Please increase the length to accommodate at least one word.");
+            return;
+        }
     }
 
-    // Ensure at least 1 symbol and 2 numbers
-    if (passwordParts.length < 8) {
-        alert("Please increase the length to accommodate at least one word.");
-        return;
-    }
-    
     const symbols = "!@#$%^&*()-_=+[]{}|;:,.<>?";
     const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
     const randomNumbers = generateRandomNumbers(2);
@@ -55,14 +56,10 @@ function generatePassword() {
     addToHistory(password);
 }
 
+
 function generatePasswordViaAPI() {
     const length = document.getElementById("length").value || 12;  // Default to 12 if not provided
-    const apiURL = `https://api.psswd.org/?length=${length}`;
-
-    if (passwordParts.length < 8) {
-        alert("Please increase the length to accommodate at least one word.");
-        return;
-    }
+    const apiURL = `https://api.psswd.org/generate-password?length=${length}`;
 
     // Fetch the password from the API
     fetch(apiURL)
@@ -75,6 +72,7 @@ function generatePasswordViaAPI() {
             console.error('Error generating password via API:', error);
         });
 }
+
 
 function getRandomWord() {
     const allWords = [...adjectives, ...nouns];
