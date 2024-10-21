@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 100 900; /* Define the weight range */
+    font-stretch: 75% 125%; /* Define the width range */
+    font-display: swap;
+}
+
 body {
-    font-family: 'Google Sans Flex', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #DDDDDD;
     color: #FBFEF9;
     margin: 0;
@@ -41,7 +49,7 @@ button {
     border-radius: 5px;
     color: white;
     font-size: 16px;
-    font-family: 'Google Sans Flex', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     margin: 5px 0;
 }
@@ -104,7 +112,7 @@ button:hover {
 }
 
 .support-section button {
-    background-color: #4CAF50; /* Green background */
+    background-color: #191923; /* Dark background */
     color: white;
     padding: 8px 12px; /* Smaller padding */
     margin: 5px; /* Smaller margin */
@@ -117,4 +125,8 @@ button:hover {
 
 .support-section button:hover {
     background-color: #45a049; /* Darker green on hover */
+}
+
+.footer {
+    color: #191923;
 }

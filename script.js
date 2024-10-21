@@ -52,8 +52,6 @@ function generatePassword() {
     document.getElementById("password").value = password;
 
     addToHistory(password);
-
-    window.location.href = "generate.html";
 }
 
 function getRandomWord() {
