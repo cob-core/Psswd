@@ -52,6 +52,8 @@ function generatePassword() {
     document.getElementById("password").value = password;
 
     addToHistory(password);
+
+    window.location.href = "generate.html";
 }
 
 function getRandomWord() {
@@ -94,8 +96,8 @@ function addToHistory(password) {
     historyContainer.prepend(historyEntry);
 
     // Add event listeners for the new buttons
-    historyEntry.querySelector('.copyHistory').addEventListener('click', () => copyHistoryPassword(password, historyEntry.querySelector('.copyHistory')));
-    historyEntry.querySelector('.copyFormatHistory').addEventListener('click', () => copyFormattedHistoryPassword(password));
+    historyEntry.querySelector('.copyHistory').addEventListener('click', () => copyPassword(password, historyEntry.querySelector('.copyHistory')));
+    historyEntry.querySelector('.copyFormatHistory').addEventListener('click', () => copyFormattedPassword(password));
 }
 
 // Copy regular password
@@ -127,34 +129,6 @@ function copyFormattedPassword() {
         });
     } else {
         fallbackCopyText(formattedText, "copyFormat");
-    }
-}
-
-// Copy password from history
-function copyHistoryPassword(password, button) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(password).then(() => {
-            changeButtonText(button.id); // Show tick on history Copy button
-        }).catch(err => {
-            console.error("Error copying password from history: ", err);
-        });
-    } else {
-        fallbackCopyText(password, button.id);
-    }
-}
-
-// Copy formatted password from history
-function copyFormattedHistoryPassword(password, button) {
-    const formattedText = `Login Details\nUsername: \nPassword: ${password}`;
-
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(formattedText).then(() => {
-            changeButtonText(button.id); // Show tick on history Copy & Format button
-        }).catch(err => {
-            console.error("Error copying formatted password from history: ", err);
-        });
-    } else {
-        fallbackCopyText(formattedText, button.id);
     }
 }
 

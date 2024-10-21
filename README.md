@@ -17,7 +17,7 @@ Though if these are used, then who would know they came from here? Who would kno
 Because of all of the data necessary is served to the browser, the site can be adjusted locally as well (if you know how). Simply change the relevant files and whole new passwords will be generated. Inject your own code if you want, nothing comes back to the servers so it's all on your own device.
 
 ## Then who is it for?
-This is perfect for those in IT positions or MSPs who need temporary passwords for end-users who need their password resetting, or for the casual user who is enforcing MFA alongside their accounts.
+This is perfect for those in IT positions or MSPs who need temporary passwords for end-users who need their password resetting, or for the casual user who is enforcing MFA alongside their accounts. If you use a long enough password, then pop it in your password manager, then it is easy and secure.
 
 ## Help! I found an issue/security vulnerability.
 Please report all issues in the 'Issues' tab. If you have a suggested feature, you can add it there too, though I will also be adding a feature to the site to allow people to add suggestions.
