@@ -16,14 +16,56 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically by default */
-    max-width: 100%; /* Ensure the container doesn't exceed screen width */
+    flex-direction: column;
+    max-width: 100%; /* For general layout */
     margin: auto;
     padding: 20px;
-    box-sizing: border-box; /* Ensure padding doesn't add extra width */
+    box-sizing: border-box;
     background-color: #191923;
     border-radius: 10px;
-    overflow: hidden; /* Prevent any elements from overflowing */
+    overflow: hidden;
+}
+
+.suggest-report-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    max-width: 600px; /* Limit the width for suggest and report pages */
+    margin: 40px auto; /* Center the container */
+    padding: 20px;
+    background-color: #27272a;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .suggest-report-container {
+        max-width: 90%; /* Allow full width for smaller devices */
+        padding: 15px; /* Reduce padding on mobile */
+    }
+}
+
+.suggest-report-container button {
+    width: 100%; /* Make buttons take full width */
+    background-color: #0E79B2;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0; /* Ensure spacing between buttons */
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .suggest-report-container {
+        max-width: 90%; /* Allow full width for smaller devices */
+        padding: 15px; /* Reduce padding on mobile */
+    }
+}
+
+.suggest-report-container button:hover {
+    background-color: #0056b3;
 }
 
 .main-content {
@@ -236,6 +278,23 @@ input[type="number"], input#password {
     box-sizing: border-box;
 }
 
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Full width for better usability */
+    padding: 15px; /* Increased padding for a larger clickable area */
+    margin-bottom: 20px; /* Space between fields */
+    font-size: 16px; /* Larger font size for better readability */
+    border: 2px solid #0E79B2; /* Add a border to match the page theme */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: #f0f0f0; /* Light background for contrast */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing, but restrict horizontal resizing */
+    height: 150px; /* Set an initial height for better usability */
+}
 
 
 /* Aspect ratio media query for portrait orientation (vertical > horizontal) */
