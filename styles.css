@@ -38,7 +38,7 @@ body {
     margin: 40px auto;
     /* Center the container */
     padding: 20px;
-    background-color: #27272a;
+    background-color: #191923;
     border-radius: 10px;
     box-sizing: border-box;
 }
@@ -220,7 +220,7 @@ input#password {
     /* Larger text for better readability */
     font-weight: bold;
     /* Make the password text bold */
-    color: #333;
+    color: #191923;
     /* Ensure the text color stands out */
     background-color: #f0f0f0;
     /* Add a light background for better contrast */
