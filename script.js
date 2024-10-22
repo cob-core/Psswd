@@ -59,19 +59,22 @@ function generatePassword() {
 
 function generatePasswordViaAPI() {
     const length = document.getElementById("length").value || 12;  // Default to 12 if not provided
-    const apiURL = `https://api.psswd.org/`;
+    const apiURL = `https://api.psswd.org/generate-password?length=${length}`;
 
-    // Fetch the password from the API
     fetch(apiURL)
         .then(response => response.json())
         .then(data => {
             // Display the password in the result area
             document.getElementById("password").value = data;
+            
+            // Add the API-generated password to the history
+            addToHistory(data);
         })
         .catch(error => {
             console.error('Error generating password via API:', error);
         });
 }
+
 
 
 function getRandomWord() {

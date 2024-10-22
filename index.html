@@ -18,37 +18,48 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="site-title">Psswd</h1>
-        <h2 id="site-tagline" class="tagline">Generate memorable word-based passwords locally.</h2>
-        <h3 class="tagline" style="font-size: 1em;">Select your length, click generate, voilà!</h3>
-        <p>All passwords meet Microsoft Complexity Requirements.</p>
-        <label for="length">Password Length:</label>
-        <input type="number" id="length" aria-labelledby="length-label" min="8" max="32" value="12">
-        <p id="length-label" class="warning">Please note password length is suggestive, not declarative.</p>
-        <button id="generate" aria-label="Generate Password">Generate Password Locally</button>
-        <button id="generate-api" aria-label="Generate Password via API">Generate Password via API</button>
-        <div class="result">
-            <h2>Your Password:</h2>
-            <label for="password" class="sr-only">Generated Password</label>
-            <input type="text" id="password" readonly aria-labelledby="password-label">
+        <div class="main-content">
+            <!-- Main content (Password generator) -->
+            <h1 id="site-title">Psswd</h1>
+            <h2 id="site-tagline" class="tagline">Generate memorable word-based passwords locally.</h2>
+            <h3 class="tagline" style="font-size: 1em;">Select your length, click generate, voilà!</h3>
+            <p>All passwords meet Microsoft Complexity Requirements.</p>
+            <label for="length">Password Length:</label>
+            <input type="number" id="length" aria-labelledby="length-label" min="8" max="32" value="12">
+            <p id="length-label" class="warning">Please note password length is suggestive, not declarative.</p>
+    
+            <!-- Generate Buttons -->
             <div class="button-group">
-                <button id="copy" onclick="copyPassword()" aria-label="Copy Password">Copy</button>
-                <button id="copyFormat" onclick="copyFormattedPassword()" aria-label="Copy & Format Password">Copy & Format</button>
+                <button id="generate" aria-label="Generate Password">Generate Password Locally</button>
+                <button id="generate-api" aria-label="Generate Password via API">Generate Password via API</button>
+            </div>
+    
+            <div class="result">
+                <h2>Your Password:</h2>
+                <label for="password" class="sr-only">Generated Password</label>
+                <input type="text" id="password" readonly aria-labelledby="password-label">
+                <div class="button-group">
+                    <button id="copy" onclick="copyPassword()" aria-label="Copy Password">Copy</button>
+                    <button id="copyFormat" onclick="copyFormattedPassword()" aria-label="Copy & Format Password">Copy & Format</button>
+                </div>
             </div>
         </div>
-
-        <div class="history">
+    
+        <div class="password-history">
             <h2><label for="history">Password History</label></h2>
             <div id="passwordHistory"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+    
     <div class="support-section">
-        <button onclick="window.location.href='suggest.html'">Suggest an Idea</button>
-        <button onclick="window.location.href='report.html'">Report a Security Vulnerability</button>
-        <hr style="width: 75%; color: #191923;">
-        <p class="footer"><b>Psswd.org</b> 2024</p>
+        <div class="button-group">
+            <button onclick="window.location.href='suggest.html'">Suggest an Idea</button>
+            <button onclick="window.location.href='report.html'">Report a Security Vulnerability</button>
+        </div>
+        <hr style="width: 25%; color: #191923;">
+        <p class="footer" style="font-size: 18px"><b>Psswd.org</b> 2024</p>
         <p class="footer" style="font-size: 12px;">Icons by <a href="https://icons8.com/">Icons8</a></p>
-    </div>    
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

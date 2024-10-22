@@ -15,12 +15,20 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically by default */
+    max-width: 100%; /* Ensure the container doesn't exceed screen width */
     margin: auto;
     padding: 20px;
-    border-radius: 10px;
+    box-sizing: border-box; /* Ensure padding doesn't add extra width */
     background-color: #191923;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden; /* Prevent any elements from overflowing */
+}
+
+.main-content {
+    flex: 1;
+    margin-right: 20px;
 }
 
 h1, h2 {
@@ -64,17 +72,92 @@ button:hover {
 
 .button-group {
     display: flex;
-    gap: 10px;
+    gap: 10px; /* Add space between the buttons */
 }
 
-.history {
-    margin-top: 20px;
+.button-group button {
+    flex: 1; /* Equal size buttons */
+    padding: 15px; /* Increase padding to make buttons taller */
+    font-size: 16px;
+    background-color: #0E79B2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
 }
 
 .history-entry {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
+    gap: 20px;
+}
+
+.history-entry .button-group {
+    margin-left: auto; /* Ensure the button group is pushed to the right */
+    display: flex;
+    gap: 10px; /* Space between the two buttons */
+}
+
+.history-entry .button-group button {
+    width: 90px; /* Slightly smaller buttons */
+    padding: 8px;
+    font-size: 13px;
+    background-color: #0E79B2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.history-entry .button-group button:hover {
+    background-color: #0056b3;
+}
+
+.history-entry span {
+    flex-grow: 1;
+    white-space: nowrap; /* Prevent the password from wrapping onto multiple lines */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Display '...' when text is too long */
+    max-width: 150px; /* Adjust the width as needed to fit the layout */
+    color: white;
+}
+
+/* Style for length input */
+input[type="number"], input#password {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px; /* Increased padding for larger clickable area */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px; /* Increase font size for better visibility */
+    font-weight: bold; /* Make text bold */
+}
+
+/* Password output styling */
+input#password {
+    font-size: 18px; /* Larger text for better readability */
+    font-weight: bold; /* Make the password text bold */
+    color: #333; /* Ensure the text color stands out */
+    background-color: #f0f0f0; /* Add a light background for better contrast */
+}
+
+.password-history {
+    flex-basis: 350px; /* Fixed width for larger screens */
+    margin-top: 20px;
+    background-color: #27272a;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%; /* Take full width within the container */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 #passwordHistory {
@@ -104,21 +187,28 @@ button:hover {
 }
 
 .support-section {
-    position: fixed; /* Fixes the section to the bottom */
-    bottom: 20px; /* Space from the bottom */
-    left: 50%; /* Centers the section */
-    transform: translateX(-50%); /* Adjusts the position to center */
+    display: flex;
+    flex-direction: column; /* Stack the section elements vertically */
+    align-items: center; /* Center the buttons horizontally */
+    gap: 10px; /* Space between buttons and text */
+    margin-top: 40px;
     text-align: center;
 }
 
+.support-section .button-group {
+    display: flex;
+    gap: 20px; /* Space between the buttons */
+    justify-content: center; /* Center the buttons */
+}
+
 .support-section button {
-    background-color: #191923; /* Dark background */
+    width: 10%; /* Set the width to 10% of the page */
+    background-color: #191923;
     color: white;
-    padding: 8px 12px; /* Smaller padding */
-    margin: 5px; /* Smaller margin */
+    padding: 10px; /* Padding for a good button size */
     border: none;
     border-radius: 5px;
-    font-size: 14px; /* Smaller font size */
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -127,6 +217,116 @@ button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
 
+.support-section p {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
 .footer {
     color: #191923;
+}
+
+input[type="number"], input#password {
+    width: 100%; /* Ensure input/output boxes take full width */
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+}
+
+
+
+/* Aspect ratio media query for portrait orientation (vertical > horizontal) */
+@media screen and (max-aspect-ratio: 1/1) {
+    .container {
+        width: 100%; /* Ensure container takes full width */
+        flex-direction: column;
+        padding: 10px; /* Reduce padding on mobile */
+    }
+
+    .password-history {
+        width: 100%; /* Ensure password history takes full width */
+        flex-basis: auto;
+        margin-right: 0;
+    }
+
+    .main-content {
+        margin-right: 0;
+    }
+
+    .history-entry .button-group button {
+        width: 90px; /* Slightly smaller buttons in horizontal view */
+        font-size: 13px; /* Adjust the font size slightly */
+    }
+
+    .support-section .button-group {
+        flex-direction: column; /* Stack the buttons vertically on small screens */
+        width: 100%;
+    }
+
+    .support-section button {
+        width: 80%; /* Adjust the button width for small screens */
+    }
+
+    .button-group button {
+        width: 100%; /* Ensure buttons take full width on small screens */
+        padding: 18px; /* Slightly more padding on smaller screens */
+    }
+
+    .password-history {
+        width: 100%; /* Force password history to take full width on mobile */
+        flex-basis: auto;
+    }
+
+    .history-entry {
+        gap: 10px; /* Adjust gap on mobile */
+    }
+
+    .history-entry .button-group {
+        width: auto; /* Allow buttons to resize if necessary */
+    }
+
+    .history-entry .button-group button {
+        width: 90px; /* Keep button size smaller on mobile */
+        font-size: 13px;
+    }
+
+    .history-entry span {
+        max-width: calc(100% - 120px); /* Ensure text doesn't overflow past buttons */
+    }
+
+    input[type="number"], input#password {
+        font-size: 20px; /* Slightly larger font size on small screens */
+    }
+
+    input[type="number"], input#password {
+        width: 100%; /* Ensure input and output fields fit the container */
+        font-size: 16px; /* Make text readable on mobile */
+        padding: 12px;
+    }
+}
+
+/* Aspect ratio media query for landscape orientation (horizontal > vertical) */
+@media screen and (min-aspect-ratio: 1/1) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .history-entry .button-group button {
+        width: 90px; /* Slightly smaller buttons in horizontal view */
+        font-size: 13px; /* Adjust the font size slightly */
+    }
+
+    .password-history {
+        width: 350px; /* Keep password history static width on desktop */
+    }
+
+    input[type="number"], input#password {
+        width: 100%; /* Ensure input/output boxes still take full width */
+    }
 }
