@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Generate memorable word based passwords locally for your logins. Completely free to use.">
+    <meta name="description"
+        content="Generate memorable word based passwords locally for your logins. Completely free to use.">
     <meta name="keywords" content="password, generator, word, reset, change, generate, random, free, gen, Psswd">
 
     <!-- Open Graph Meta Tags: Show how the site is displayed when shared. -->
     <meta property="og:title" content="Psswd | Memorable Word Based Password Generator | Free to Use">
-    <meta property="og:description" content="Generate memorable word based passwords locally for your logins. Completely free to use.">
+    <meta property="og:description"
+        content="Generate memorable word based passwords locally for your logins. Completely free to use.">
     <meta property="og:image" content="path/to/image.png">
     <meta property="og:url" content="https://www.psswd.com">
 
@@ -16,6 +19,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <div class="container">
         <div class="main-content">
@@ -27,30 +31,31 @@
             <label for="length">Password Length:</label>
             <input type="number" id="length" aria-labelledby="length-label" min="8" max="32" value="12">
             <p id="length-label" class="warning">Please note password length is suggestive, not declarative.</p>
-    
+
             <!-- Generate Buttons -->
             <div class="button-group">
                 <button id="generate" aria-label="Generate Password">Generate Password Locally</button>
                 <button id="generate-api" aria-label="Generate Password via API">Generate Password via API</button>
             </div>
-    
+
             <div class="result">
                 <h2>Your Password:</h2>
                 <label for="password" class="sr-only">Generated Password</label>
                 <input type="text" id="password" readonly aria-labelledby="password-label">
                 <div class="button-group">
                     <button id="copy" onclick="copyPassword()" aria-label="Copy Password">Copy</button>
-                    <button id="copyFormat" onclick="copyFormattedPassword()" aria-label="Copy & Format Password">Copy & Format</button>
+                    <button id="copyFormat" onclick="copyFormattedPassword()" aria-label="Copy & Format Password">Copy &
+                        Format</button>
                 </div>
             </div>
         </div>
-    
+
         <div class="password-history">
             <h2><label for="history">Password History</label></h2>
             <div id="passwordHistory"></div>
         </div>
     </div>
-    
+
     <div class="support-section">
         <div class="button-group">
             <button onclick="window.location.href='suggest.html'">Suggest an Idea</button>
@@ -62,4 +67,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suggest an Idea</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="suggest-report-container">
         <h1>Suggest an Idea</h1>
-        <p class="warning">Please note this form is not encrypted. If there is anything sensitive you wish to share, please use the 'Report' page instead.</p>
+        <p class="warning">Please note this form is not encrypted. If there is anything sensitive you wish to share,
+            please use the 'Report' page instead.</p>
         <form id="suggestionForm">
             <label for="name">Your Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
@@ -37,7 +40,7 @@
             const suggestion = sanitizeInput(document.getElementById('suggestion').value);
 
             // Create the formatted email body
-    const emailBody = `
+            const emailBody = `
 <b>Name:</b> ${name}
 <b>Email:</b> ${email}
 
@@ -47,13 +50,15 @@ Psswd.org,
             `.trim();
 
             // Redirect to mailto with the formatted body
-            window.location.href = `mailto:suggestions@psswd.org?subject=Suggestion from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
+            window.location.href =
+                `mailto:suggestions@psswd.org?subject=Suggestion from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
         }
     </script>
     <div class="support-section">
         <hr style="width: 25%; color: #191923;">
         <p class="footer" style="font-size: 18px"><b>Psswd.org</b> 2024</p>
         <p class="footer" style="font-size: 12px;">Icons by <a href="https://icons8.com/">Icons8</a></p>
-        </div>    
+    </div>
 </body>
+
 </html>

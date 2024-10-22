@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,10 @@
             padding: 10px;
             border-radius: 5px;
             color: #FBFEF9;
-            white-space: pre-wrap; /* Keep formatting of PGP key */
-            font-family: monospace; /* Make the PGP key look distinct */
+            white-space: pre-wrap;
+            /* Keep formatting of PGP key */
+            font-family: monospace;
+            /* Make the PGP key look distinct */
         }
 
         button {
@@ -32,12 +35,14 @@
         }
     </style>
 </head>
+
 <body>
     <div class="suggest-report-container">
         <h1>Report a Security Vulnerability</h1>
-        <p class="warning">Please send a PGP encrypted email to <a style="color: #DDDDDD;" href="mailto:security@psswd.org"><b>security@psswd.org</b></a>.</p>
+        <p class="warning">Please send a PGP encrypted email to <a style="color: #DDDDDD;"
+                href="mailto:security@psswd.org"><b>security@psswd.org</b></a>.</p>
         <!-- <button onclick="window.location.href='https://github.com/cobbock/Psswd/security'">Report Vulnerability</button> -->
-        
+
         <!-- PGP Key Section -->
         <h2>PGP Public Key</h2>
         <div class="pgp-key-container" id="pgpKeyContainer">
@@ -50,7 +55,7 @@
         <hr style="width: 25%; color: #191923;">
         <p class="footer" style="font-size: 18px"><b>Psswd.org</b> 2024</p>
         <p class="footer" style="font-size: 12px;">Icons by <a href="https://icons8.com/">Icons8</a></p>
-        </div>
+    </div>
     <script>
         // Fetch the PGP key from the pgp_key.txt file and display it
         fetch('./pgp_key.txt')
@@ -68,4 +73,5 @@
             });
     </script>
 </body>
+
 </html>

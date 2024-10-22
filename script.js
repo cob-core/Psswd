@@ -18,7 +18,7 @@ async function loadWords() {
             fetch('adjectives.txt'),
             fetch('nouns.txt')
         ]);
-        
+
         adjectives.push(...(await adjectiveResponse.text()).split('\n'));
         nouns.push(...(await nounResponse.text()).split('\n'));
     } catch (error) {
@@ -30,7 +30,7 @@ function generatePassword() {
     const length = parseInt(document.getElementById("length").value);
     const passwordParts = [];
     let totalLength = 0;
-    
+
     // Loop to generate words and check their length against total password length
     while (totalLength < length - 3) { // Leave space for numbers and a symbol
         const word = getRandomWord();
@@ -49,7 +49,7 @@ function generatePassword() {
     const symbols = "!@#$%^&*()-_=+[]{}|;:,.<>?";
     const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
     const randomNumbers = generateRandomNumbers(2);
-    
+
     const password = passwordParts.join('') + randomSymbol + randomNumbers;
     document.getElementById("password").value = password;
 
@@ -58,7 +58,7 @@ function generatePassword() {
 
 
 function generatePasswordViaAPI() {
-    const length = document.getElementById("length").value || 12;  // Default to 12 if not provided
+    const length = document.getElementById("length").value || 12; // Default to 12 if not provided
     const apiURL = `https://api.psswd.org/?length=${length}`;
 
     fetch(apiURL)
@@ -66,7 +66,7 @@ function generatePasswordViaAPI() {
         .then(data => {
             // Display the password in the result area
             document.getElementById("password").value = data;
-            
+
             // Add the API-generated password to the history
             addToHistory(data);
         })

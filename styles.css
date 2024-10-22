@@ -1,8 +1,10 @@
 @font-face {
     font-family: 'Open Sans';
     src: url('./.fonts/OpenSans-VariableFont.ttf') format('truetype');
-    font-weight: 100 900; /* Define the weight range */
-    font-stretch: 75% 125%; /* Define the width range */
+    font-weight: 100 900;
+    /* Define the weight range */
+    font-stretch: 75% 125%;
+    /* Define the width range */
     font-display: swap;
 }
 
@@ -17,7 +19,8 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 100%; /* For general layout */
+    max-width: 100%;
+    /* For general layout */
     margin: auto;
     padding: 20px;
     box-sizing: border-box;
@@ -28,9 +31,12 @@ body {
 
 .suggest-report-container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    max-width: 600px; /* Limit the width for suggest and report pages */
-    margin: 40px auto; /* Center the container */
+    flex-direction: column;
+    /* Stack elements vertically */
+    max-width: 600px;
+    /* Limit the width for suggest and report pages */
+    margin: 40px auto;
+    /* Center the container */
     padding: 20px;
     background-color: #27272a;
     border-radius: 10px;
@@ -39,13 +45,16 @@ body {
 
 @media (max-width: 768px) {
     .suggest-report-container {
-        max-width: 90%; /* Allow full width for smaller devices */
-        padding: 15px; /* Reduce padding on mobile */
+        max-width: 90%;
+        /* Allow full width for smaller devices */
+        padding: 15px;
+        /* Reduce padding on mobile */
     }
 }
 
 .suggest-report-container button {
-    width: 100%; /* Make buttons take full width */
+    width: 100%;
+    /* Make buttons take full width */
     background-color: #0E79B2;
     padding: 10px 20px;
     color: white;
@@ -53,14 +62,17 @@ body {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin: 10px 0; /* Ensure spacing between buttons */
+    margin: 10px 0;
+    /* Ensure spacing between buttons */
     transition: background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
     .suggest-report-container {
-        max-width: 90%; /* Allow full width for smaller devices */
-        padding: 15px; /* Reduce padding on mobile */
+        max-width: 90%;
+        /* Allow full width for smaller devices */
+        padding: 15px;
+        /* Reduce padding on mobile */
     }
 }
 
@@ -73,7 +85,8 @@ body {
     margin-right: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: center;
 }
 
@@ -82,8 +95,10 @@ label {
     margin-bottom: 10px;
 }
 
-input[type="number"], input#password {
-    width: calc(100% - 20px); /* Adjust for padding */
+input[type="number"],
+input#password {
+    width: calc(100% - 20px);
+    /* Adjust for padding */
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -91,7 +106,7 @@ input[type="number"], input#password {
 }
 
 button {
-    
+
     width: 100%;
     padding: 10px;
     background-color: #0E79B2;
@@ -114,12 +129,15 @@ button:hover {
 
 .button-group {
     display: flex;
-    gap: 10px; /* Add space between the buttons */
+    gap: 10px;
+    /* Add space between the buttons */
 }
 
 .button-group button {
-    flex: 1; /* Equal size buttons */
-    padding: 15px; /* Increase padding to make buttons taller */
+    flex: 1;
+    /* Equal size buttons */
+    padding: 15px;
+    /* Increase padding to make buttons taller */
     font-size: 16px;
     background-color: #0E79B2;
     border: none;
@@ -142,13 +160,16 @@ button:hover {
 }
 
 .history-entry .button-group {
-    margin-left: auto; /* Ensure the button group is pushed to the right */
+    margin-left: auto;
+    /* Ensure the button group is pushed to the right */
     display: flex;
-    gap: 10px; /* Space between the two buttons */
+    gap: 10px;
+    /* Space between the two buttons */
 }
 
 .history-entry .button-group button {
-    width: 90px; /* Slightly smaller buttons */
+    width: 90px;
+    /* Slightly smaller buttons */
     padding: 8px;
     font-size: 13px;
     background-color: #0E79B2;
@@ -166,40 +187,56 @@ button:hover {
 
 .history-entry span {
     flex-grow: 1;
-    white-space: nowrap; /* Prevent the password from wrapping onto multiple lines */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Display '...' when text is too long */
-    max-width: 150px; /* Adjust the width as needed to fit the layout */
+    white-space: nowrap;
+    /* Prevent the password from wrapping onto multiple lines */
+    overflow: hidden;
+    /* Hide overflow text */
+    text-overflow: ellipsis;
+    /* Display '...' when text is too long */
+    max-width: 150px;
+    /* Adjust the width as needed to fit the layout */
     color: white;
 }
 
 /* Style for length input */
-input[type="number"], input#password {
-    width: calc(100% - 20px); /* Adjust for padding */
-    padding: 12px; /* Increased padding for larger clickable area */
+input[type="number"],
+input#password {
+    width: calc(100% - 20px);
+    /* Adjust for padding */
+    padding: 12px;
+    /* Increased padding for larger clickable area */
     margin-bottom: 20px;
     border-radius: 5px;
     border: none;
-    font-size: 18px; /* Increase font size for better visibility */
-    font-weight: bold; /* Make text bold */
+    font-size: 18px;
+    /* Increase font size for better visibility */
+    font-weight: bold;
+    /* Make text bold */
 }
 
 /* Password output styling */
 input#password {
-    font-size: 18px; /* Larger text for better readability */
-    font-weight: bold; /* Make the password text bold */
-    color: #333; /* Ensure the text color stands out */
-    background-color: #f0f0f0; /* Add a light background for better contrast */
+    font-size: 18px;
+    /* Larger text for better readability */
+    font-weight: bold;
+    /* Make the password text bold */
+    color: #333;
+    /* Ensure the text color stands out */
+    background-color: #f0f0f0;
+    /* Add a light background for better contrast */
 }
 
 .password-history {
-    flex-basis: 350px; /* Fixed width for larger screens */
+    flex-basis: 350px;
+    /* Fixed width for larger screens */
     margin-top: 20px;
     background-color: #27272a;
     padding: 15px;
     border-radius: 5px;
-    width: 100%; /* Take full width within the container */
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    width: 100%;
+    /* Take full width within the container */
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
 }
 
 #passwordHistory {
@@ -211,43 +248,58 @@ input#password {
 .tagline {
     text-align: center;
     font-size: 1.2em;
-    color: #ccc; /* Adjust the color as desired */
-    margin: 5px 0 20px; /* Reduced top margin to 5px */
+    color: #ccc;
+    /* Adjust the color as desired */
+    margin: 5px 0 20px;
+    /* Reduced top margin to 5px */
 }
 
 .warning {
-    color: #F39237; /* Change this color to your preference */
+    color: #F39237;
+    /* Change this color to your preference */
     text-align: center;
-    margin: 5px 0 20px; /* Reduced top margin to 5px */
+    margin: 5px 0 20px;
+    /* Reduced top margin to 5px */
 }
 
 .button-tick {
-    display: none; /* Initially hidden */
-    margin-left: 5px; /* Space between button text and tick */
-    height: 16px; /* Adjust size as needed */
-    width: 16px; /* Adjust size as needed */
+    display: none;
+    /* Initially hidden */
+    margin-left: 5px;
+    /* Space between button text and tick */
+    height: 16px;
+    /* Adjust size as needed */
+    width: 16px;
+    /* Adjust size as needed */
 }
 
 .support-section {
     display: flex;
-    flex-direction: column; /* Stack the section elements vertically */
-    align-items: center; /* Center the buttons horizontally */
-    gap: 10px; /* Space between buttons and text */
+    flex-direction: column;
+    /* Stack the section elements vertically */
+    align-items: center;
+    /* Center the buttons horizontally */
+    gap: 10px;
+    /* Space between buttons and text */
     margin-top: 40px;
     text-align: center;
 }
 
 .support-section .button-group {
     display: flex;
-    gap: 20px; /* Space between the buttons */
-    justify-content: center; /* Center the buttons */
+    gap: 20px;
+    /* Space between the buttons */
+    justify-content: center;
+    /* Center the buttons */
 }
 
 .support-section button {
-    width: 10%; /* Set the width to 10% of the page */
+    width: 10%;
+    /* Set the width to 10% of the page */
     background-color: #191923;
     color: white;
-    padding: 10px; /* Padding for a good button size */
+    padding: 10px;
+    /* Padding for a good button size */
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -256,7 +308,8 @@ input#password {
 }
 
 .support-section button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
+    /* Darker green on hover */
 }
 
 .support-section p {
@@ -268,8 +321,10 @@ input#password {
     color: #191923;
 }
 
-input[type="number"], input#password {
-    width: 100%; /* Ensure input/output boxes take full width */
+input[type="number"],
+input#password {
+    width: 100%;
+    /* Ensure input/output boxes take full width */
     font-size: 16px;
     padding: 10px;
     margin-bottom: 20px;
@@ -281,32 +336,45 @@ input[type="number"], input#password {
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 100%; /* Full width for better usability */
-    padding: 15px; /* Increased padding for a larger clickable area */
-    margin-bottom: 20px; /* Space between fields */
-    font-size: 16px; /* Larger font size for better readability */
-    border: 2px solid #0E79B2; /* Add a border to match the page theme */
-    border-radius: 5px; /* Rounded corners for a modern look */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    background-color: #f0f0f0; /* Light background for contrast */
+    width: 100%;
+    /* Full width for better usability */
+    padding: 15px;
+    /* Increased padding for a larger clickable area */
+    margin-bottom: 20px;
+    /* Space between fields */
+    font-size: 16px;
+    /* Larger font size for better readability */
+    border: 2px solid #0E79B2;
+    /* Add a border to match the page theme */
+    border-radius: 5px;
+    /* Rounded corners for a modern look */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+    background-color: #f0f0f0;
+    /* Light background for contrast */
 }
 
 textarea {
-    resize: vertical; /* Allow vertical resizing, but restrict horizontal resizing */
-    height: 150px; /* Set an initial height for better usability */
+    resize: vertical;
+    /* Allow vertical resizing, but restrict horizontal resizing */
+    height: 150px;
+    /* Set an initial height for better usability */
 }
 
 
 /* Aspect ratio media query for portrait orientation (vertical > horizontal) */
 @media screen and (max-aspect-ratio: 1/1) {
     .container {
-        width: 100%; /* Ensure container takes full width */
+        width: 100%;
+        /* Ensure container takes full width */
         flex-direction: column;
-        padding: 10px; /* Reduce padding on mobile */
+        padding: 10px;
+        /* Reduce padding on mobile */
     }
 
     .password-history {
-        width: 100%; /* Ensure password history takes full width */
+        width: 100%;
+        /* Ensure password history takes full width */
         flex-basis: auto;
         margin-right: 0;
     }
@@ -316,53 +384,69 @@ textarea {
     }
 
     .history-entry .button-group button {
-        width: 90px; /* Slightly smaller buttons in horizontal view */
-        font-size: 13px; /* Adjust the font size slightly */
+        width: 90px;
+        /* Slightly smaller buttons in horizontal view */
+        font-size: 13px;
+        /* Adjust the font size slightly */
     }
 
     .support-section .button-group {
-        flex-direction: column; /* Stack the buttons vertically on small screens */
+        flex-direction: column;
+        /* Stack the buttons vertically on small screens */
         width: 100%;
     }
 
     .support-section button {
-        width: 80%; /* Adjust the button width for small screens */
+        width: 80%;
+        /* Adjust the button width for small screens */
     }
 
     .button-group button {
-        width: 100%; /* Ensure buttons take full width on small screens */
-        padding: 18px; /* Slightly more padding on smaller screens */
+        width: 100%;
+        /* Ensure buttons take full width on small screens */
+        padding: 18px;
+        /* Slightly more padding on smaller screens */
     }
 
     .password-history {
-        width: 100%; /* Force password history to take full width on mobile */
+        width: 100%;
+        /* Force password history to take full width on mobile */
         flex-basis: auto;
     }
 
     .history-entry {
-        gap: 10px; /* Adjust gap on mobile */
+        gap: 10px;
+        /* Adjust gap on mobile */
     }
 
     .history-entry .button-group {
-        width: auto; /* Allow buttons to resize if necessary */
+        width: auto;
+        /* Allow buttons to resize if necessary */
     }
 
     .history-entry .button-group button {
-        width: 90px; /* Keep button size smaller on mobile */
+        width: 90px;
+        /* Keep button size smaller on mobile */
         font-size: 13px;
     }
 
     .history-entry span {
-        max-width: calc(100% - 120px); /* Ensure text doesn't overflow past buttons */
+        max-width: calc(100% - 120px);
+        /* Ensure text doesn't overflow past buttons */
     }
 
-    input[type="number"], input#password {
-        font-size: 20px; /* Slightly larger font size on small screens */
+    input[type="number"],
+    input#password {
+        font-size: 20px;
+        /* Slightly larger font size on small screens */
     }
 
-    input[type="number"], input#password {
-        width: 100%; /* Ensure input and output fields fit the container */
-        font-size: 16px; /* Make text readable on mobile */
+    input[type="number"],
+    input#password {
+        width: 100%;
+        /* Ensure input and output fields fit the container */
+        font-size: 16px;
+        /* Make text readable on mobile */
         padding: 12px;
     }
 }
@@ -376,16 +460,22 @@ textarea {
         max-width: 1200px;
         margin: auto;
     }
+
     .history-entry .button-group button {
-        width: 90px; /* Slightly smaller buttons in horizontal view */
-        font-size: 13px; /* Adjust the font size slightly */
+        width: 90px;
+        /* Slightly smaller buttons in horizontal view */
+        font-size: 13px;
+        /* Adjust the font size slightly */
     }
 
     .password-history {
-        width: 350px; /* Keep password history static width on desktop */
+        width: 350px;
+        /* Keep password history static width on desktop */
     }
 
-    input[type="number"], input#password {
-        width: 100%; /* Ensure input/output boxes still take full width */
+    input[type="number"],
+    input#password {
+        width: 100%;
+        /* Ensure input/output boxes still take full width */
     }
 }
