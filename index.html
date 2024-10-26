@@ -13,23 +13,47 @@
     <meta property="og:description"
         content="Generate memorable word based passwords locally for your logins. Completely free to use.">
     <meta property="og:image" content="path/to/image.png">
-    <meta property="og:url" content="https://www.psswd.com">
+    <meta property="og:url" content="https://www.psswd.org">
 
-    <title>Psswd | Memorable Word Based Password Generator | Free to Use</title>
+    <title>Psswd | Password Generator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="container">
+        <!-- Guidelines Content -->
+        <div class="guidelines">
+            <div id="NIST">
+                <h2>NIST.gov Guidelines</h1>
+                <ol>
+                    <li>Password length should be sufficiently complex. Users are encouraged to make their passwords as legnth as they want, within reason.</li>
+                    <li>Passwords should not contain common words (such as "Password") but should be memorable.</li>
+                    <li>Passwords should be stored securely, with sufficient protection again attacks.</li>
+                </ol>
+                <p style="font-size: 12px;">Source:<br>https://pages.nist.gov/800-63-4/sp800-63b/passwords/</p>
+            </div>
+            <div id="NCSC">
+                <h2>NSCS.gov.uk Guidelines</h1>
+                <ol>
+                    <li>Combine three random words to create a single memorable password.</li>
+                    <li>User a password manager.</li>
+                    <li>Don’t use predictable passwords (such as dates, family
+                        and pet names) or ones that criminals can easily guess
+                        (like ‘1234’).</li>
+                    <li>If your smart device comes with a default password (like
+                        0000), change it immediately.</li>
+                </ol>
+                <p style="font-size: 12px;">Source:<br>https://www.ncsc.gov.uk/files/NCSC-using-passwords-infographic.pdf</p>
+            </div>
+        </div>
         <div class="main-content">
             <!-- Main content (Password generator) -->
             <h1 id="site-title">Psswd</h1>
-            <h2 id="site-tagline" class="tagline">Generate memorable word-based passwords locally.</h2>
-            <h3 class="tagline" style="font-size: 1em;">Select your length, click generate, voilà!</h3>
-            <p>All passwords meet Microsoft Complexity Requirements.</p>
+            <h2 id="site-tagline" class="tagline">Generate memorable word-based passwords.</h2>
+            <p class="warning">All API passwords meet Microsoft Complexity Requirements, NIST Guidelines, and NCSC Guidelines</p>
             <label for="length">Password Length:</label>
-            <input type="number" id="length" aria-labelledby="length-label" min="8" max="32" value="12">
+            <input type="number" id="length" aria-labelledby="length-label" min="8" max="64" value="24">
             <p id="length-label" class="warning">Please note password length is suggestive, not declarative.</p>
 
             <!-- Generate Buttons -->
@@ -49,13 +73,14 @@
                 </div>
             </div>
         </div>
-
+        <!-- Password History (Generated via Script) -->
         <div class="password-history">
             <h2><label for="history">Password History</label></h2>
             <div id="passwordHistory"></div>
         </div>
     </div>
 
+    <!-- Support Section // Footer -->
     <div class="support-section">
         <div class="button-group">
             <button onclick="window.location.href='suggest.html'">Suggest an Idea</button>

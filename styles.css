@@ -43,15 +43,6 @@ body {
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-    .suggest-report-container {
-        max-width: 90%;
-        /* Allow full width for smaller devices */
-        padding: 15px;
-        /* Reduce padding on mobile */
-    }
-}
-
 .suggest-report-container button {
     width: 100%;
     /* Make buttons take full width */
@@ -65,15 +56,6 @@ body {
     margin: 10px 0;
     /* Ensure spacing between buttons */
     transition: background-color 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .suggest-report-container {
-        max-width: 90%;
-        /* Allow full width for smaller devices */
-        padding: 15px;
-        /* Reduce padding on mobile */
-    }
 }
 
 .suggest-report-container button:hover {
@@ -378,11 +360,15 @@ input[type="number"] {
         /* Reduce padding on mobile */
     }
 
-    .password-history {
+    .password-history, .guidelines{
         width: 100%;
         /* Ensure password history takes full width */
         flex-basis: auto;
         margin-right: 0;
+    }
+
+    .guidelines {
+        display: none;
     }
 
     .main-content {
@@ -407,17 +393,18 @@ input[type="number"] {
         /* Adjust the button width for small screens */
     }
 
+    .suggest-report-container {
+        max-width: 90%;
+        /* Allow full width for smaller devices */
+        padding: 15px;
+        /* Reduce padding on mobile */
+    }
+
     .button-group button {
         width: 100%;
         /* Ensure buttons take full width on small screens */
         padding: 18px;
         /* Slightly more padding on smaller screens */
-    }
-
-    .password-history {
-        width: 100%;
-        /* Force password history to take full width on mobile */
-        flex-basis: auto;
     }
 
     .history-entry {
@@ -457,7 +444,7 @@ input[type="number"] {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        max-width: 1200px;
+        max-width: 1400px;
         margin: auto;
     }
 
@@ -468,9 +455,10 @@ input[type="number"] {
         /* Adjust the font size slightly */
     }
 
-    .password-history {
+    .password-history, .guidelines {
         width: 350px;
         /* Keep password history static width on desktop */
+        padding-right: 25px;
     }
 
     input[type="number"],
