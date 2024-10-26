@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("copyFormat").addEventListener("click", copyFormattedPassword);
     document.getElementById("generate-api").addEventListener("click", generatePasswordViaAPI);
     // Set the default password length to 14
-    document.getElementById("length").value = 14;
+    document.getElementById("length").value = 24;
 });
 
 async function loadWords() {
